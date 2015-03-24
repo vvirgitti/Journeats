@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Journeats/Journeats",
   "devDependencies": {
+    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-express-server": "^0.4.19",
+    "grunt-protractor-runner": "^1.2.1",
+    "grunt-protractor-webdriver": "^0.2.0",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",
