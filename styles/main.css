@@ -1,0 +1,22 @@
+#googlemaps { 
+  height: 100%; 
+  width: 100%; 
+  position:absolute; 
+  top: 0; 
+  left: 0; 
+  z-index: 0;
+}
+
+#left_panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+  margin: 0;
+  padding: 10px;
+  background: #33aa46;
+  width: 200px;
+  opacity: .95;
+  color: white;
+}
