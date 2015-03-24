@@ -4,21 +4,80 @@
   <title>Journeats</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
   <script src="scripts/UIScripts.js"></script>
 </head>
 <body>
 
-
-<!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map-canvas"></div> -->
-
-
   <section id="left-panel">
-    <h1>JournEats</h1>
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <header>
+      <h1>JournEats</h1>
+      <input id="pac-input" class="controls" type="text" placeholder="What do you want to eat?">
+    </header>
+    <main id="search-results">
+      <ul>
+        <li>
+          <main>
+            <h2>Starbucks</h2>
+            <p id="price-range">$</p>
+          </main>
+          <aside>
+            <p id="aggregate-score">86%</p>
+          </aside>
+        </li>
+        <li>
+          <main>
+            <h2>Costa Coffee</h2>
+            <p id="price-range">$$</p>
+          </main>
+          <aside>
+            <p id="aggregate-score">84%</p>
+          </aside>
+        </li>
+        <li>
+          <main>
+            <h2>Ozone Coffee</h2>
+            <p id="price-range">$$$</p>
+          </main>
+          <aside>
+            <p id="aggregate-score">72%</p>
+          </aside>
+        </li>
+        <li>
+          <main>
+            <h2>Trade</h2>
+            <p id="price-range">$$$</p>
+          </main>
+          <aside>
+            <p id="aggregate-score">52%</p>
+          </aside>
+        </li>
+        <li>
+          <main>
+            <h2>Crisis</h2>
+            <p id="price-range">$$</p>
+          </main>
+          <aside>
+            <p id="aggregate-score">35%</p>
+          </aside>
+        </li>
+        <li>
+          <main>
+            <h2>Caffe Nero</h2>
+            <p id="price-range">$</p>
+          </main>
+          <aside>
+            <p id="aggregate-score">31%</p>
+          </aside>
+        </li>
+      </ul>
+    </main>
+  </section>
+
+  <section id="bottom-panel">
+
   </section>
 
   <section id="map-canvas">
