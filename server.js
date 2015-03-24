@@ -2,8 +2,10 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function(request, response){
-  response.send("Hello World")
+  response.sendFile('index.html')
 });
 
 server.listen(3000, function(){
