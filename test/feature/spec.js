@@ -1,9 +1,9 @@
 describe('Journeats App', function() {
 
   describe('Loading the page', function() {
-    it('', function() {
-      browser.get('http://localhost3000');
-      expect(browser.getTitle()).toEqual('JournEats')
+    it('Should have a title', function() {
+      browser.get('http://localhost:3000');
+      expect(browser.getTitle()).toEqual('Journeats');
     });
   });
 

@@ -1,1 +1,1 @@
-var journeats = angular.module('Journeats', ['ngResource'])
+var journeats = angular.module('Journeats', ['ngResource']);
