@@ -4,7 +4,8 @@
   "description": "Makers Academy week 8 Makerthon project to build a restaurant review aggregator.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start test/karma.conf.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "protractor": "^2.0.0"
   },
   "dependencies": {
+    "bower": "^1.3.12",
     "express": "^4.12.3"
   }
 }
