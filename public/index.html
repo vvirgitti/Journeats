@@ -7,20 +7,27 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-  <script src="scripts/UIScripts.js"></script>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
   <script src="js/app.js"></script>
   <script src="js/searchResultsController.js"></script>
+  <script src="js/mapController.js"></script>
 </head>
 <body>
 
   <section id="left-panel" ng-controller="SearchResultsController">
+    
     <header>
       <h1>JournEats</h1>
-      <input id="pac-input" class="controls" type="text" placeholder="What do you want to eat?">
+      <form name="searchForm" novalidate ng-submit="search()" ng-controller="journeatsCtrl">
+        <div class="input-group">
+        <input name="place" id="pac-input" type="text" class="controls" ng-Autocomplete="result" ng-model="searchPlace" required autofocus googleplace/>
+        </div>
+      </form>
     </header>
+
     <main id="search-results">
       <ul ng-repeat="result in searchResults">
         <li>
@@ -66,8 +73,9 @@
     </aside>
   </section>
 
-  <section id="map-canvas">
-  </section>
+  <div class="container" id="map-canvas" ng-controller="journeatsCtrl">
+    <div id="map"></div>
+  </div>
 
 </body>
 </html>
