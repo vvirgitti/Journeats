@@ -88,11 +88,11 @@ body {
   float: left;
 }
 
-#bottom-panel header {
+#bottom-panel #main-header {
   display: inline-block;
   height: 70px;
   width: 700px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   border-bottom: solid white 4px;
 }
 
@@ -106,7 +106,8 @@ body {
   color: #ABB7B7;
 }
 
-#bottom-panel aside {
+#bottom-panel #price-range {
+  position: fixed;
   height: 100px;
   width: 130px;
   display: inline-block;
@@ -114,7 +115,27 @@ body {
   background-color: #52b3d9;
 }
 
+#main-content {
+  width: 850px;
+  display: inline-block;
+}
 
+#api-data {
+  background-color: white;
+  width: 100%;
+  height: 376px;
+  margin-top: 20px;
+  overflow-y:scroll;
+}
+
+#sidebar {
+  float: right;
+  margin-right: 2%;
+  height: 90%;
+  width: 270px;
+  display: inline-block;
+  background-color: red;
+}
 
 
 /* THIS IS THE GOOGLE MAPS STUFF BELOW */
