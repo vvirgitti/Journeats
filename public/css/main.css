@@ -106,7 +106,7 @@ body {
   color: #ABB7B7;
 }
 
-#bottom-panel #price-range {
+#bottom-panel #price-panel {
   float: right;
   height: 100px;
   width: 130px;
@@ -137,10 +137,25 @@ body {
   display: inline-block;
 }
 
-#sidebar #our-score {
+#sidebar #score-panel {
   width: 240px;
   height: 232px;
   background-image: url("../images/score-badge.png");
+  position: fixed;
+}
+
+#bottom-panel aside #aggregate-score {
+  font-size: 5em;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#bottom-panel #main-content #price-range {
+  font-size: 2em;
+  font-style: italic;
+  font-weight: normal;
+  margin: 13px auto;
+  text-align: center;
 }
 
 /* THIS IS THE GOOGLE MAPS STUFF BELOW */

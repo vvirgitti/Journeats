@@ -9,9 +9,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
   <script src="scripts/UIScripts.js"></script>
   <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="js/app.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="js/app.js"></script>
 </head>
 <body>
 
@@ -86,12 +86,14 @@
       <header id="main-header">
         <h1>Ozone Coffee Roasters</h1> <span id="address">11 Leonard Street</span>
       </header>
-      <aside id="price-range"></aside>
+      <aside id="price-panel">
+        <p id="price-range">$$$</p>
+      </aside>
       <main id="api-data"></main>
     </div>
     <aside id="sidebar">
-      <header id="our-score">
-
+      <header id="score-panel">
+        <p id="aggregate-score">72%</p>
       </header>
     </aside>
   </section>
