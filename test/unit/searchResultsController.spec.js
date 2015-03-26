@@ -3,15 +3,17 @@ describe('SearchResultsController', function() {
 
   var scope, ctrl;
 
-  beforeEach(inject(function($rootScope, $controller) {
+  beforeEach(inject(function($rootScope, $controller, sharedProperties) {
     scope = $rootScope.$new();
     ctrl = $controller('searchResultsController', {
         $scope: scope
     });
   }));
 
+  var mockedObject = {name: "Ozone Coffee Roasters"};
+  var testResult = sharedProperties.setProperty(mockedObject);
+
   it("returns an object with the name of the clicked search result", function() {
-    var mockedObject = {name: "Ozone Coffee Roasters"};
     scope.chosenResult(mockedObject);
     expect(scope.chosenObject).toEqual(mockedObject);
   });
