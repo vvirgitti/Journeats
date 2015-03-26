@@ -17,11 +17,11 @@
 </head>
 <body>
 
-  <section id="left-panel" ng-controller="SearchResultsController">
+  <section id="left-panel" ng-controller="journeatsCtrl">
     
     <header>
       <h1>JournEats</h1>
-      <form name="searchForm" novalidate ng-submit="search()" ng-controller="journeatsCtrl">
+      <form name="searchForm" novalidate ng-submit="search()" >
         <div class="input-group">
         <input name="place" id="pac-input" type="text" class="controls" ng-Autocomplete="result" ng-model="searchPlace" required autofocus googleplace/>
         </div>
@@ -29,14 +29,14 @@
     </header>
 
     <main id="search-results">
-      <ul ng-repeat="result in searchResults">
+      <ul ng-repeat="result in searchQuery">
         <li>
           <main>
-            <h2>{{result.name}}</h2>
-            <p id="price-range">{{result.priceRange}}</p>
+            <h2>{{result.name.slice(0,13)}}</h2>
+            <p id="price-range">{{result.price_level}}</p>
           </main>
           <aside>
-            <p id="aggregate-score">{{result.aggregateScore}}</p>
+            <p id="aggregate-score">{{result.rating}}</p>
           </aside>
         </li>
       </ul>
