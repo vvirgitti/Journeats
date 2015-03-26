@@ -8,6 +8,7 @@ journeats.controller('searchResultsController', function($rootScope, $scope, sha
     sharedProperties.setSelectedName($scope.selectedObject[0].name);
     sharedProperties.setSelectedLongitude($scope.selectedObject[0].geometry.location.k);
     sharedProperties.setSelectedLatitude($scope.selectedObject[0].geometry.location.D);
+    sharedProperties.setBottomPanelDisplay(true);
   };
 
 });

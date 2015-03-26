@@ -6,14 +6,11 @@ journeats.controller('bottomPanelController', function($rootScope, $scope, share
   };
 
 $scope.images = [];
+$scope.panelDisplay = sharedProperties.getBottomPanelDisplay();
 
   $scope.getImages = function() {
     $scope.images = bottomPanelService.getPhotos();
   };
-
-  
-
-
 
   console.log($scope.images);
 
@@ -24,6 +21,7 @@ $scope.images = [];
       $scope.name = sharedProperties.getSelectedName();
       $scope.address = sharedProperties.getSelectedObject()[0].formatted_address;
       $scope.getImages();
+      $scope.panelDisplay = sharedProperties.getBottomPanelDisplay();
     }
   };
 
