@@ -17,6 +17,7 @@
   <script src="js/services/bottomPanelService.js"></script>
   <script src="js/instagramController.js"></script>
   <script src="js/searchResultsController.js"></script>
+  <script src="js/bottomPanelController.js"></script>
   <script src="js/mapController.js"></script>
 </head>
 <body ng-controller="InstagramController">
@@ -50,12 +51,12 @@
     </main>
   </section>
 
-  <section id="bottom-panel" class="hidden">
+  <section id="bottom-panel" ng-controller="bottomPanelController" ng-model="retrieveDetails()">
     <div id="behind-left-panel"></div>
 
     <div id="main-content">
       <header id="main-header">
-        <h1>Ozone Coffee Roasters</h1> <span id="address">11 Leonard Street</span>
+        <h1>{{name}}</h1> <span id="address">{{address}}</span>
       </header>
       <aside id="price-panel">
         <p id="price-range">$$$</p>
