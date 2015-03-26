@@ -1,4 +1,4 @@
-journeats.service('instagramPhotos', function() {
+journeats.service('bottomPanelService', function() {
     var instagramPhotos;
 
     return {

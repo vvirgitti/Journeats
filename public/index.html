@@ -64,11 +64,8 @@
 
       <main id="api-data">
         <div id="image-row" >
-          <ul>
-            <li><img src="./images/ozone-one.jpg"></li>
-            <li><img src="./images/ozone-two.jpg"></li>
-            <li><img src="./images/ozone-three.jpg"></li>
-            <li><img src="./images/ozone-four.jpg"></li>
+          <ul ng-repeat="image in images">
+            <li><img ng-src="{{image}}"></li>
           </ul>
         </div>
       </main>

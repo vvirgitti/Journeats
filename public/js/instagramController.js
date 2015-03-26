@@ -1,5 +1,5 @@
 
-journeats.controller('InstagramController', function($scope, $http, $resource, sharedProperties, instagramProperties, instagramPhotos) {
+journeats.controller('InstagramController', function($scope, $http, $resource, sharedProperties, instagramProperties, bottomPanelService) {
 
   var accessToken = 'access_token=1787504160.d00f606.0c71ab52ffce47ca99505405e19ae2ae';
 
@@ -30,9 +30,9 @@ journeats.controller('InstagramController', function($scope, $http, $resource, s
         for (i = 0; i < response.data.data.length; i++) {
           pictures.push(response.data.data[i].images.low_resolution.url)
         }
-        instagramPhotos.setPhotos(pictures);
+        bottomPanelService.setPhotos(pictures);
 
-        console.log(instagramPhotos.getPhotos());
+        // console.log(bottomPanelService.getPhotos());
       });
 
 
