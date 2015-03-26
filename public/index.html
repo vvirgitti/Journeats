@@ -7,82 +7,47 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-  <script src="scripts/UIScripts.js"></script>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
   <script src="js/app.js"></script>
   <script src="js/instagramController.js"></script>
+  <script src="js/searchResultsController.js"></script>
+  <script src="js/mapController.js"></script>
 </head>
 <body ng-controller="InstagramController">
 
-  <section id="left-panel">
+  <section id="left-panel" ng-controller="journeatsCtrl">
+
     <header>
       <h1>JournEats</h1>
-      <input id="pac-input" class="controls" type="text" placeholder="What do you want to eat?">
-      <input type="submit" ng-click="getlocationslist()">
+      <form name="searchForm" novalidate ng-submit="search()" >
+        <div class="input-group">
+        <input name="place" id="pac-input" type="text" class="controls" ng-Autocomplete="result" ng-model="searchPlace" required autofocus googleplace/>
+        </div>
+      </form>
     </header>
-    <main id="search-results">
-      <ul>
-        <li>
+
+    <main id="search-results" ng-controller="searchResultsController">
+      <ul ng-repeat="result in searchQuery">
+        <li ng-click="selectedResult(result)">
           <main>
-            <h2>Starbucks</h2>
-            <p id="price-range">$</p>
+            <div id="name-box">
+              <h2>{{result.name}}</h2>
+            </div>
+              <p id="price-range">{{result.price_level}}</p>
           </main>
           <aside>
-            <p id="aggregate-score">86%</p>
-          </aside>
-        </li>
-        <li>
-          <main>
-            <h2>Costa Coffee</h2>
-            <p id="price-range">$$</p>
-          </main>
-          <aside>
-            <p id="aggregate-score">84%</p>
-          </aside>
-        </li>
-        <li>
-          <main>
-            <h2>Ozone Coffee</h2>
-            <p id="price-range">$$$</p>
-          </main>
-          <aside>
-            <p id="aggregate-score">72%</p>
-          </aside>
-        </li>
-        <li>
-          <main>
-            <h2>Trade</h2>
-            <p id="price-range">$$$</p>
-          </main>
-          <aside>
-            <p id="aggregate-score">52%</p>
-          </aside>
-        </li>
-        <li>
-          <main>
-            <h2>Crisis</h2>
-            <p id="price-range">$$</p>
-          </main>
-          <aside>
-            <p id="aggregate-score">35%</p>
-          </aside>
-        </li>
-        <li>
-          <main>
-            <h2>Caffe Nero</h2>
-            <p id="price-range">$</p>
-          </main>
-          <aside>
-            <p id="aggregate-score">31%</p>
+            <p id="aggregate-score">{{result.rating}}</p>
           </aside>
         </li>
       </ul>
     </main>
   </section>
 
-  <section id="bottom-panel">
+  <section id="bottom-panel" class="hidden">
     <div id="behind-left-panel"></div>
 
     <div id="main-content">
@@ -114,8 +79,9 @@
     </aside>
   </section>
 
-  <section id="map-canvas">
-  </section>
+  <div class="container" id="map-canvas" ng-controller="journeatsCtrl">
+    <div id="map"></div>
+  </div>
 
 </body>
 </html>

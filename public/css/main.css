@@ -8,6 +8,10 @@ body {
   font-weight: 600;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 #left-panel {
   position: absolute;
   top: 0;
@@ -16,7 +20,7 @@ body {
   z-index: 2;
   margin: 0;
   padding: 0 10px;
-  background: rgba(4, 147, 114, 0.75);
+  background: rgba(4, 147, 114, 0.65);
   width: 250px;
   color: white;
   overflow-y:scroll;
@@ -47,9 +51,14 @@ body {
   bottom: 15px;
 }
 
+#left-panel li #name-box {
+  width: 125px;
+  height: 50px;
+}
+
 #left-panel li h2 {
   color: #dc4a3e;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 #left-panel li #price-range {
@@ -185,6 +194,13 @@ html, body, #map-canvas {
   margin: 0px;
   padding: 0px
 }
+
+#map {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
 .controls {
   margin-top: 16px;
   border: 1px solid transparent;
