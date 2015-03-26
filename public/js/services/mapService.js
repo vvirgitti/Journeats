@@ -1,5 +1,3 @@
-searchresults = [];
-
 journeats.service('Map', function($q) {
     
   this.init = function() {
@@ -43,31 +41,4 @@ journeats.service('Map', function($q) {
   });
 
     
-});
-
-journeats.controller('journeatsCtrl', function($scope, Map, sharedProperties) {
-  $scope.searchQuery = [];
-  $scope.place = {};
-    
-  $scope.search = function() {
-    $scope.apiError = false;
-    Map.search($scope.searchPlace)
-    .then(
-      function(res) { // success
-        Map.addMarker(res);
-        $scope.place.name = res.name;
-        $scope.place.lat = res.geometry.location.lat();
-        $scope.place.lng = res.geometry.location.lng();
-        $scope.searchQuery = searchresults;
-        sharedProperties.setProperty($scope.searchQuery);
-        // console.log(sharedProperties.getProperty());
-      },
-      function(status) { // error
-        $scope.apiError = true;
-        $scope.apiStatus = status;
-      }
-    );
-  };
-  
-  Map.init();
 });

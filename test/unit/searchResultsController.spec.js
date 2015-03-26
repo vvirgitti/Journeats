@@ -5,18 +5,15 @@ describe('SearchResultsController', function() {
 
   beforeEach(inject(function($rootScope, $controller) {
     scope = $rootScope.$new();
-    ctrl = $controller('SearchResultsController', {
+    ctrl = $controller('searchResultsController', {
         $scope: scope
     });
   }));
 
-  xit("has no search results when initialized", function() {
-    expect(scope.searchResults.length).toEqual(0);
-  });
-
-  xit("can receive a list of search results", function() {
-    scope.receiveResults();
-    expect(scope.searchResults.length).toEqual(3);
+  it("returns an object with the name of the clicked search result", function() {
+    var mockedObject = {name: "Ozone Coffee Roasters"};
+    scope.chosenResult(mockedObject);
+    expect(scope.chosenObject).toEqual(mockedObject);
   });
 
 });
