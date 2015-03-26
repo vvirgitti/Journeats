@@ -1,13 +1,38 @@
 var journeats = angular.module('Journeats', ['ngResource', 'ngAutocomplete'])
   .service('sharedProperties', function () {
-        var property;
+        var selectedObject;
+        var selectedName;
+        var selectedLongitude;
+        var selectedLatitude;
 
         return {
-            getProperty: function () {
-                return property;
+            getSelectedObject: function () {
+                return selectedObject;
             },
-            setProperty: function(value) {
-                property = value;
+            setSelectedObject: function(value) {
+                selectedObject = value;
+            },
+
+            getSelectedName: function () {
+                return selectedName;
+            },
+            setSelectedName: function(value) {
+                selectedName = value;
+            },
+
+            getSelectedLongitude: function () {
+                return selectedLongitude;
+            },
+            setSelectedLongitude: function(value) {
+                selectedLongitude = value;
+            },
+
+            getSelectedLatitude: function () {
+                return selectedLatitude;
+            },
+            setSelectedLatitude: function(value) {
+                selectedLatitude = value;
             }
         };
+
     });

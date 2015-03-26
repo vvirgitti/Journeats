@@ -31,7 +31,7 @@
 
     <main id="search-results" ng-controller="searchResultsController">
       <ul ng-repeat="result in searchQuery">
-        <li>
+        <li ng-click="selectedResult(result)">
           <main>
             <div id="name-box">
               <h2>{{result.name}}</h2>
@@ -39,14 +39,14 @@
               <p id="price-range">{{result.price_level}}</p>            
           </main>
           <aside>
-            <button ng-click="chosenResult(result)"><p id="aggregate-score">{{result.rating}}</p></button>
+            <p id="aggregate-score">{{result.rating}}</p>
           </aside>
         </li>
       </ul>
     </main>
   </section>
 
-  <section id="bottom-panel">
+  <section id="bottom-panel" class="hidden">
     <div id="behind-left-panel"></div>
     
     <div id="main-content">

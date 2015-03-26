@@ -1,10 +1,14 @@
 journeats.controller('searchResultsController', function($rootScope, $scope, sharedProperties) {
 
-  $scope.chosenResult = function(object) {
-    $scope.chosenObject = sharedProperties.getProperty().filter(function(item) {
+  $scope.selectedResult = function(object) {
+    $scope.selectedObject = sharedProperties.getSelectedObject().filter(function(item) {
       return (item === object);
     });
-    console.log($scope.chosenObject);
+    sharedProperties.setSelectedName($scope.selectedObject[0].name);
+    sharedProperties.setSelectedLongitude($scope.selectedObject[0].geometry.location.k);
+    sharedProperties.setSelectedLatitude($scope.selectedObject[0].geometry.location.D);
+    console.log($scope.selectedObject);
+    console.log(sharedProperties.getSelectedLongitude());
   };
 
 });

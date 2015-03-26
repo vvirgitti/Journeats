@@ -8,6 +8,10 @@ body {
   font-weight: 600;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 #left-panel {
   position: absolute;
   top: 0;
@@ -85,7 +89,6 @@ body {
   background-color: rgba(63, 116, 145, 0.9);
   color: white;
   z-index: 1;
-  visibility: hidden;
 }
 
 #bottom-panel #behind-left-panel {

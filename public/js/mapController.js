@@ -59,7 +59,7 @@ journeats.controller('journeatsCtrl', function($scope, Map, sharedProperties) {
         $scope.place.lat = res.geometry.location.lat();
         $scope.place.lng = res.geometry.location.lng();
         $scope.searchQuery = searchresults;
-        sharedProperties.setProperty($scope.searchQuery);
+        sharedProperties.setSelectedObject($scope.searchQuery);
       },
       function(status) { // error
         $scope.apiError = true;
