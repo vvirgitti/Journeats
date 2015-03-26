@@ -5,6 +5,8 @@ var journeats = angular.module('Journeats', ['ngResource', 'ngAutocomplete'])
         var selectedName;
         var selectedLongitude;
         var selectedLatitude;
+        var selectedPrice;
+        var selectedScore;
         var bottomPanelDisplay = false;
 
         return {
@@ -41,6 +43,18 @@ var journeats = angular.module('Journeats', ['ngResource', 'ngAutocomplete'])
             },
             setSelectedLatitude: function(value) {
                 selectedLatitude = value;
+            },
+            getSelectedPrice: function () {
+                return selectedPrice;
+            },
+            setSelectedPrice: function(value) {
+                selectedPrice = value;
+            },
+            getSelectedScore: function () {
+                return selectedScore;
+            },
+            setSelectedScore: function(value) {
+                selectedScore = value;
             },
             getBottomPanelDisplay: function() {
                 return bottomPanelDisplay;

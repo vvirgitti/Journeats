@@ -5,14 +5,16 @@ journeats.controller('bottomPanelController', function($rootScope, $scope, share
     $scope.address = '';
   };
 
-$scope.images = [];
-$scope.panelDisplay = sharedProperties.getBottomPanelDisplay();
+  $scope.images = [];
+  $scope.panelDisplay = sharedProperties.getBottomPanelDisplay();
+  
+  $scope.random = function() {
+    return 0.5 - Math.random();
+  };
 
   $scope.getImages = function() {
     $scope.images = bottomPanelService.getPhotos();
   };
-
-  console.log($scope.images);
 
   $scope.retrieveDetails = function(object) {
     if(typeof sharedProperties.getSelectedName() === 'undefined') {
@@ -22,6 +24,8 @@ $scope.panelDisplay = sharedProperties.getBottomPanelDisplay();
       $scope.address = sharedProperties.getSelectedObject()[0].formatted_address;
       $scope.getImages();
       $scope.panelDisplay = sharedProperties.getBottomPanelDisplay();
+      $scope.price = sharedProperties.getSelectedPrice();
+      $scope.score = sharedProperties.getSelectedScore();
     }
   };
 

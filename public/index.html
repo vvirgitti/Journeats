@@ -59,12 +59,12 @@
         <h1>{{name}}</h1> <span id="address">{{address}}</span>
       </header>
       <aside id="price-panel">
-        <p id="price-range">$$$</p>
+        <p id="price-range">{{price || "???"}}</p>
       </aside>
 
       <main id="api-data">
         <div id="image-row" >
-          <ul ng-repeat="image in images">
+          <ul ng-repeat="image in images | limitTo:4">
             <li><img ng-src="{{image}}"></li>
           </ul>
         </div>
@@ -75,7 +75,7 @@
 
     <aside id="sidebar">
       <header id="score-panel">
-        <p id="aggregate-score">72%</p>
+        <p id="aggregate-score">{{score}}</p>
       </header>
     </aside>
   </section>
