@@ -85,7 +85,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 400px;
+  height: 450px;
   background-color: rgba(63, 116, 145, 0.9);
   color: white;
   z-index: 1;
@@ -99,7 +99,7 @@ body {
 
 #bottom-panel #main-header {
   display: inline-block;
-  height: 70px;
+  height: 109px;
   width: 425px;
   margin-bottom: 20px;
   border-bottom: solid white 4px;
@@ -107,10 +107,14 @@ body {
 
 #bottom-panel header h1 {
   float: left;
+  position: relative;
+  bottom: 10px;
 }
 
 #bottom-panel header #address {
-  float: right;
+  float: left;
+  position: relative;
+  bottom: 50px;
   margin-top: 27px;
   color: #ABB7B7;
 }
@@ -133,8 +137,7 @@ body {
 #api-data {
   background-color: white;
   width: 100%;
-  height: 275px;
-  margin-top: 20px;
+  height: 309px;
   overflow-y:scroll;
 }
 
@@ -145,12 +148,12 @@ body {
   padding: 0;
   list-style-type: none;
   width: 100%;
-  margin: 10px 1%;
 }
 
 #api-data #image-row li {
   display: inline-block;
-  width: 24%;
+  width: 23%;
+  margin: 10px 1%;
 }
 
 #api-data #image-row li img {

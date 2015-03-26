@@ -64,8 +64,8 @@
 
       <main id="api-data">
         <div id="image-row" >
-          <ul ng-repeat="image in images | limitTo:4">
-            <li><img ng-src="{{image}}"></li>
+          <ul>
+            <li ng-repeat="image in images | limitTo:4"><img ng-src="{{image}}"></li>
           </ul>
         </div>
       </main>
