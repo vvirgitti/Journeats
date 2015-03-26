@@ -13,6 +13,7 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/services/instagramService.js"></script>
   <script src="js/instagramController.js"></script>
   <script src="js/searchResultsController.js"></script>
   <script src="js/mapController.js"></script>
@@ -26,13 +27,14 @@
       <form name="searchForm" novalidate ng-submit="search()" >
         <div class="input-group">
         <input name="place" id="pac-input" type="text" class="controls" ng-Autocomplete="result" ng-model="searchPlace" required autofocus googleplace/>
+
         </div>
       </form>
     </header>
 
     <main id="search-results" ng-controller="searchResultsController">
       <ul ng-repeat="result in searchQuery">
-        <li ng-click="selectedResult(result)">
+        <li ng-click="selectedResult(result); getInstagramLocations()">
           <main>
             <div id="name-box">
               <h2>{{result.name}}</h2>
