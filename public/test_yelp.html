@@ -19,6 +19,8 @@
 <body ng-app="journeats">
         <div  ng-controller="YelpCtrl">
             <p><date-input name="info.name" message="info.message"></date-input></p>
+
+            <input type="submit" ng-click="requestYelpID()"></input>
             <ul>
                 <li data-ng-repeat="business in businesses">
                     Business Name: {{business.name}} <br>
@@ -27,6 +29,7 @@
                     Number of reviews: {{business.review_count}}<br>
                     Image: {{business.image_url}}<br>
                     Location: {{business.location.display_address}}<br>
+
 
                     <!-- 2 call <br>
                     {{business.reviews}}<br> -->

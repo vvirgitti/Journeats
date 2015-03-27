@@ -1,9 +1,9 @@
 var journeats = angular.module('Journeats', ['ngResource'])
-.service('yelpProperties', function () {
+.service('yelpProperties', function() {
   var businessID;
 
   return {
-    getBusinessID: function () {
+    getBusinessID: function() {
       return businessID;
     },
     setBusinessID: function(value) {

@@ -30,7 +30,7 @@ describe('yelpController', function() {
     ];
 
     it('displays the details of a result', function() {
-      expect(scope.businesses).toEqual(items);
+      expect(yelpProperties.getBusinessID()).toEqual(items);
     });
 
   });
