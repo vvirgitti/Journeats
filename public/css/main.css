@@ -129,6 +129,20 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+#bottom-panel aside #aggregate-score {
+  font-size: 5em;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#bottom-panel #main-content #price-range {
+  font-size: 2em;
+  font-style: italic;
+  font-weight: normal;
+  margin: 13px auto;
+  text-align: center;
+}
+
 #main-content {
   width: 52%;
   display: inline-block;
@@ -175,20 +189,6 @@ body {
   background-image: url("../images/score-badge.png");
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   position: fixed;
-}
-
-#bottom-panel aside #aggregate-score {
-  font-size: 5em;
-  margin: 20px auto;
-  text-align: center;
-}
-
-#bottom-panel #main-content #price-range {
-  font-size: 2em;
-  font-style: italic;
-  font-weight: normal;
-  margin: 13px auto;
-  text-align: center;
 }
 
 /* THIS IS THE GOOGLE MAPS STUFF BELOW */
