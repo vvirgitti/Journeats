@@ -25,7 +25,7 @@
   <section id="left-panel" ng-controller="journeatsCtrl">
 
     <header>
-      <h1>JournEats</h1>
+      <h1><img src="/images/reversed_logo.png">JournEats</img></h1>
       <form name="searchForm" novalidate ng-submit="search()" >
         <div class="input-group">
         <input name="place" id="pac-input" type="text" class="controls" ng-Autocomplete="result" ng-model="searchPlace" required autofocus googleplace/>
@@ -62,14 +62,19 @@
         <p id="price-range">{{"£".repeat(price) || "??"}}</p>
       </aside>
 
-      <main id="api-data">
-        <div id="image-row" >
-          <ul>
-            <li ng-repeat="image in images | limitTo:4"><img ng-src="{{image}}"></li>
-          </ul>
-        </div>
-        hello
-      </main>
+      <div id="apiandlogos">
+        <br/><img id="instagram-logo" src="images/instagram_logo.png">
+
+        <main id="api-data">
+          <div id="image-row">
+            <ul>
+              <li ng-repeat="image in images"><img ng-src="{{image}}"></li>
+            </ul>
+          </div>
+          
+        </main>
+      </div>
+      
     </div>
 
 
