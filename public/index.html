@@ -41,7 +41,7 @@
             <div id="name-box">
               <h2>{{result.name}}</h2>
             </div>
-              <p id="price-range">{{result.price_level}}</p>
+              <p id="price-range">{{"£".repeat(result.price_level)}}</p>
           </main>
           <aside>
             <p id="aggregate-score">{{result.rating}}</p>
@@ -59,7 +59,7 @@
         <h1>{{name}}</h1> <span id="address">{{address}}</span>
       </header>
       <aside id="price-panel">
-        <p id="price-range">{{price || "???"}}</p>
+        <p id="price-range">{{"£".repeat(price) || "??"}}</p>
       </aside>
 
       <main id="api-data">

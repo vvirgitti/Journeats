@@ -20,14 +20,4 @@ journeats.controller('searchResultsController', function($rootScope, $scope, sha
       sharedProperties.setBottomPanelDisplay(true);
     }
   };
-
-  // $scope.convertPriceRange = function(number) {
-  //   var dollarSigns = "";
-  //   for (i = 0; i <= number; i++) {
-  //     dollarSigns.push("$");
-  //     console.log(dollarSigns);
-  //   }
-  //   return dollarSigns;
-  // };
-
 });
