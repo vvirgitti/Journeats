@@ -215,6 +215,25 @@ body {
   position: fixed;
 }
 
+#sidebar #reviews {
+  position: relative;
+  top: 254px;
+  width: 240px;
+  height: 170px;
+}
+
+#sidebar #reviews h1 {
+  float: right;
+  position: relative;
+  right: 45px;
+  bottom: 16px;
+}
+
+#sidebar #reviews p {
+  position: relative;
+  bottom: 10px;
+}
+
 /* THIS IS THE GOOGLE MAPS STUFF BELOW */
 
 html, body, #map-canvas {

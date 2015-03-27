@@ -79,10 +79,15 @@
 
 
 
-    <aside id="sidebar">
+    <aside id="sidebar" ng-controller="bottomPanelController">
       <header id="score-panel">
         <p id="aggregate-score">{{((score) * 10) * 2}}%</p>
       </header>
+      <main id="reviews">
+        <img style="width:30px" src="images/yelp_icon.png">
+        <h1 id="rating">Yelp Rating: 4.5</h1>
+        <p id="link">Click to read some of the 278 reviews</p>
+      </main>
     </aside>
   </section>
 

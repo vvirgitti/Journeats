@@ -61,17 +61,16 @@ journeats.service('Map', function($q, sharedProperties) {
   });
 
   this.selectMarker = function(markerNumber) {
-    //change icon to green
-    markers[markerNumber].setIcon(selectImage);
-    //recenter above (to account for the info window)
     var location = new google.maps.LatLng(searchresults[markerNumber].geometry.location.k-0.02,searchresults[markerNumber].geometry.location.D-0.02);
-
+    markers[markerNumber].setIcon(selectImage);
+    markers[markerNumber].setAnimation(google.maps.Animation.BOUNCE);
     this.map.setCenter(location);
 
   };
 
   this.unselectMarker = function(markerNumber) {
     markers[markerNumber].setIcon(defaultImage);
+    markers[markerNumber].setAnimation(null);
   };
 
   this.deleteAllMarkers = function(markers) {
@@ -81,11 +80,6 @@ journeats.service('Map', function($q, sharedProperties) {
     markers = [];
   };
 
-  //pos = searchresults.map(function(e) { return e.name; }).indexOf(selectedObject.name)
-
-  // this.selectMarker = function(object) {
-  //   pos = searchresults.map(function(e) { return e.name; }).indexOf(seletedObject.name)
-  // };
 
 });
 
