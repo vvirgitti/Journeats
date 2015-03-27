@@ -1,12 +1,15 @@
 var searchresults = [];
-
-journeats.service('Map', function($q, sharedProperties) {
-
-  var markers = [];
-  var image = {
+var markers = [];
+var selectImage = {
       url: 'http://www.clker.com/cliparts/n/T/j/m/1/z/map-pin-green-md.png',
       scaledSize: new google.maps.Size(30, 47)
     };
+var defaultImage = {
+      url: 'http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png',
+      scaledSize: new google.maps.Size(30, 30)
+    };
+
+journeats.service('Map', function($q, sharedProperties) {
     
   this.init = function() {
     var options = {
@@ -37,9 +40,6 @@ journeats.service('Map', function($q, sharedProperties) {
  
   this.addMarkers = function(places) {
     
-
-    console.log("here are the markers:"+markers);
-
     this.deleteAllMarkers(markers);
 
     for (var i = 0, place ; place = places[i]; i++) {
@@ -47,12 +47,11 @@ journeats.service('Map', function($q, sharedProperties) {
         map: this.map,
         draggable: true,
         position: place.geometry.location,
+        icon: defaultImage,
         animation: google.maps.Animation.DROP
       });
-      console.log(place.icon);
       markers.push(this.marker);
     }
-    markers[0].setIcon(image);
     this.map.setCenter(places[0].geometry.location);
   };
 
@@ -60,6 +59,20 @@ journeats.service('Map', function($q, sharedProperties) {
     var bounds = map.getBounds();
     searchBox.setBounds(bounds);
   });
+
+  this.selectMarker = function(markerNumber) {
+    //change icon to green
+    markers[markerNumber].setIcon(selectImage);
+    //recenter above (to account for the info window)
+    var location = new google.maps.LatLng(searchresults[markerNumber].geometry.location.k-0.02,searchresults[markerNumber].geometry.location.D-0.02);
+
+    this.map.setCenter(location);
+
+  };
+
+  this.unselectMarker = function(markerNumber) {
+    markers[markerNumber].setIcon(defaultImage);
+  };
 
   this.deleteAllMarkers = function(markers) {
   for (var i = 0; i < markers.length; i++) {
@@ -79,12 +92,20 @@ journeats.service('Map', function($q, sharedProperties) {
 journeats.controller('journeatsCtrl', function($scope, Map, sharedProperties) {
   $scope.searchQuery = [];
   $scope.place = {};
-  selected = []
+  var previousPos = 99;
 
-  test = function() {
-  if(sharedProperties.getSelectedObject()) {selected = sharedProperties.getSelectedObject()}
-};
 
+
+  $scope.selectMarker = function(result) {
+    var pos = searchresults.map(function(e) { return e.id; }).indexOf(result.id);
+    if(previousPos !== 99) {Map.unselectMarker(previousPos)};
+    Map.selectMarker(pos);
+    previousPos = pos;
+  };
+
+  $scope.unselectPreviousMarker = function() {
+    Map.selectMarker(previousMarker);
+  };
 
   $scope.search = function() {
     $scope.apiError = false;

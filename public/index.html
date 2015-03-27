@@ -36,7 +36,7 @@
 
     <main id="search-results" ng-controller="searchResultsController">
       <ul ng-repeat="result in searchQuery">
-        <li ng-click="selectedResult(result); getInstagramLocations()">
+        <li ng-click="selectedResult(result); getInstagramLocations(); selectMarker(result) ">
           <main>
             <div id="name-box">
               <h2>{{result.name}}</h2>
