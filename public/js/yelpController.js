@@ -4,25 +4,25 @@ function randomString(length, chars) {
   return result;
 }
 
-journeats.controller('YelpCtrl', ['$scope', 'yelp', 'yelpProperties', 'yelpsearch', function($scope, yelp, yelpProperties, yelpsearch) {
+journeats.controller('YelpCtrl', ['$scope', 'yelp', function($scope, yelp) {
   $scope.businesses = [];
 
   $scope.requestYelpID = function() {
 
     yelp.retrieveYelp(function(data) {
       $scope.businesses = data.businesses;
-        $scope.setYelpBusiness();
+        // $scope.setYelpBusiness();
         console.log(data);
       });
 
   }
 
-  $scope.getYelpInfo = function() {
-    var ID = yelpProperties.getBusinessID()[0].id;
-    yelpsearch.retrieveYelp2(ID,function(data){
-      console.log(data);
-    });
-  }
+  // $scope.getYelpInfo = function() {
+  //   var ID = yelpProperties.getBusinessID()[0].id;
+  //   yelpsearch.retrieveYelp2(ID,function(data){
+  //     console.log(data);
+  //   });
+  // }
 
     $scope.setYelpBusiness = function() {
       yelpProperties.setBusinessID($scope.businesses);
@@ -62,27 +62,27 @@ journeats.controller('YelpCtrl', ['$scope', 'yelp', 'yelpProperties', 'yelpsearc
 
 });
 
-journeats.factory("yelpsearch", function($http) {
-  return {
-  "retrieveYelp2": function(yelpID, callback) {
-    var method = 'GET';
-    var url = 'http://api.yelp.com/v2/business/'+yelpID;
-    var params = {
-      callback: 'angular.callbacks._0',
-      oauth_consumer_key: auth_consumer_key.consumerKey,
-      oauth_token: auth_token.accessToken,
-      oauth_signature_method: "HMAC-SHA1",
-      oauth_timestamp: new Date().getTime(),
-      oauth_nonce: randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
-    };
-
-    var consumerSecret = authConsumer.consumerSecret;
-    var tokenSecret = authToken.tokenSecret;
-
-      var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
-      params['oauth_signature'] = signature;
-      var test = $http.jsonp(url, {params: params}).success(callback);
-
-    }
-  }
-});
+// journeats.factory("yelpsearch", function($http) {
+//   return {
+//   "retrieveYelp2": function(yelpID, callback) {
+//     var method = 'GET';
+//     var url = 'http://api.yelp.com/v2/business/'+yelpID;
+//     var params = {
+//       callback: 'angular.callbacks._0',
+//       oauth_consumer_key: auth_consumer_key.consumerKey,
+//       oauth_token: auth_token.accessToken,
+//       oauth_signature_method: "HMAC-SHA1",
+//       oauth_timestamp: new Date().getTime(),
+//       oauth_nonce: randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+//     };
+//
+//     var consumerSecret = authConsumer.consumerSecret;
+//     var tokenSecret = authToken.tokenSecret;
+//
+//       var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
+//       params['oauth_signature'] = signature;
+//       var test = $http.jsonp(url, {params: params}).success(callback);
+//
+//     }
+//   }
+// });
