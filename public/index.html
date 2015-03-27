@@ -13,30 +13,35 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/services/instagramService.js"></script>
+  <script src="js/services/bottomPanelService.js"></script>
+  <script src="js/instagramController.js"></script>
   <script src="js/searchResultsController.js"></script>
+  <script src="js/bottomPanelController.js"></script>
   <script src="js/mapController.js"></script>
 </head>
-<body>
+<body ng-controller="InstagramController">
 
   <section id="left-panel" ng-controller="journeatsCtrl">
-    
+
     <header>
       <h1>JournEats</h1>
       <form name="searchForm" novalidate ng-submit="search()" >
         <div class="input-group">
         <input name="place" id="pac-input" type="text" class="controls" ng-Autocomplete="result" ng-model="searchPlace" required autofocus googleplace/>
+
         </div>
       </form>
     </header>
 
     <main id="search-results" ng-controller="searchResultsController">
       <ul ng-repeat="result in searchQuery">
-        <li ng-click="selectedResult(result)">
+        <li ng-click="selectedResult(result); getInstagramLocations()">
           <main>
             <div id="name-box">
               <h2>{{result.name}}</h2>
             </div>
-              <p id="price-range">{{result.price_level}}</p>            
+              <p id="price-range">{{result.price_level}}</p>
           </main>
           <aside>
             <p id="aggregate-score">{{result.rating}}</p>
@@ -46,32 +51,31 @@
     </main>
   </section>
 
-  <section id="bottom-panel" class="hidden">
+  <section id="bottom-panel" ng-controller="bottomPanelController" ng-model="retrieveDetails()" ng-show="panelDisplay" class="ng-hide">
     <div id="behind-left-panel"></div>
-    
+
     <div id="main-content">
       <header id="main-header">
-        <h1>Ozone Coffee Roasters</h1> <span id="address">11 Leonard Street</span>
+        <h1>{{name}}</h1> <span id="address">{{address}}</span>
       </header>
       <aside id="price-panel">
-        <p id="price-range">$$$</p>
+        <p id="price-range">{{price || "???"}}</p>
       </aside>
-      
+
       <main id="api-data">
-        <div id="image-row">
+        <div id="image-row" >
           <ul>
-            <li><img src="./images/ozone-one.jpg"></li>
-            <li><img src="./images/ozone-two.jpg"></li>
-            <li><img src="./images/ozone-three.jpg"></li>
-            <li><img src="./images/ozone-four.jpg"></li>
+            <li ng-repeat="image in images | limitTo:4"><img ng-src="{{image}}"></li>
           </ul>
         </div>
       </main>
     </div>
-    
+
+
+
     <aside id="sidebar">
       <header id="score-panel">
-        <p id="aggregate-score">72%</p>
+        <p id="aggregate-score">{{score}}</p>
       </header>
     </aside>
   </section>

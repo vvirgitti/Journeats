@@ -93,7 +93,7 @@ journeats.controller('journeatsCtrl', function($scope, Map, sharedProperties) {
       function(places) { // success
         Map.addMarkers(places);
         $scope.searchQuery = searchresults;
-        sharedProperties.setSelectedObject($scope.searchQuery);
+        sharedProperties.setAllObjects($scope.searchQuery);
       },
       function(status) { // error
         $scope.apiError = true;
