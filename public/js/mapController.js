@@ -1,12 +1,12 @@
 var searchresults = [];
 var markers = [];
 var selectImage = {
-      url: 'http://www.clker.com/cliparts/n/T/j/m/1/z/map-pin-green-md.png',
-      scaledSize: new google.maps.Size(30, 47)
+      url: 'http://journeats.herokuapp.com/images/selected_pin.png',
+      //scaledSize: new google.maps.Size(30, 47)
     };
 var defaultImage = {
-      url: 'http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png',
-      scaledSize: new google.maps.Size(30, 30)
+      url: 'http://journeats.herokuapp.com/images/unselected_pin.png',
+      //scaledSize: new google.maps.Size(30, 30)
     };
 
 journeats.service('Map', function($q, sharedProperties) {
